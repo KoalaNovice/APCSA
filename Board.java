@@ -15,9 +15,19 @@ public class  Board
   /* your code here - constructor(s) */ 
   
   /* your code here - accessor(s) */
-  
+  public String getPhrase()
+  {
+    return phrase;
+  }
+  public String getSolvedPhrase()
+  {
+    return solvedPhrase;
+  }
+  public int getLetterValue()
+  {
+    return currentLetterValue;
+  }
   /* your code here - mutator(s)  */
-
 
   /* ---------- provided code, do not modify ---------- */
   public void setLetterValue()

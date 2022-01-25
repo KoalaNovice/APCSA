@@ -1,13 +1,36 @@
+/*
+ * Activity 2.5.2
+ * 
+ * A Player class the PhraseSolverGame
+ */
 import java.util.Scanner;
 
 public class Player
-[
+{
+  /* your code here - attributes */
     private String name;
     private int points;
-
-    public Player()
+  /* your code here - constructor(s) */ 
+    public Player(String inputName)
     {
-        System.out.println("Enter Player Name: ");
-        Scanner sc = new 
+        return inputName;
     }
-]
+  /* your code here - accessor(s) */ 
+    public String getName()
+    {
+
+    }
+    public int getPoints()
+    {
+
+    }
+  /* your code here - mutator(s) */
+    public void setName()
+    {
+
+    } 
+    public void addToPoints(int value)
+    {
+
+    }
+}
