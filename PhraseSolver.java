@@ -11,7 +11,7 @@ public class PhraseSolver
     private Player player1;
     private Player player2;
     private Board game;
-    private booleaqn solved;
+    private boolean solved;
   /* your code here - constructor(s) */ 
     public PhraseSolver()
     {
@@ -33,7 +33,7 @@ public class PhraseSolver
     {
       
       /* your code here - game logic */
-      
+      System.out.println("Input Player 1's Name");
       
       /* your code here - determine how game ends */
       solved = true; 

@@ -11,6 +11,16 @@ public class Player
     private String name;
     private int points;
   /* your code here - constructor(s) */ 
+    public Player() 
+    {
+      System.out.print("Enter Player Name: ");
+      Scanner sc = new Scanner(System.in);
+      String newName = sc.NextLine();
+
+      name = newName;
+      points = 0;
+      System.out.println("Hello and welcome to " + getName());
+    }
     public Player(String inputName)
     {
         return inputName;
