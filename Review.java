@@ -167,33 +167,67 @@ public class Review {
   //My code below
   public static void main(String[] args)
   {
-    String simpleTextFile = textToString("SimpleReview.txt");
-    System.out.println(totalSentiment(simpleTextFile));
+    System.out.println(fakeReview("SimpleReview.txt"));
   }
-  public static double totalSentiment(String textFile)
-  {
-    // Initialise variables I will need
-    double totalSentiment = 0.00;
-    String review = textFile;
-    int counter = 0;
-    String stringHolder = "";
+  public static double totalSentiment(String fileName)
+{
+  double total = 0.0;
+  String letter = "";
+  String word = ""; 
+  //call the text to string method that gets the SimpleReview.txt
+  String review = textToString(fileName);
+  review += " ";
 
-    review = review.replaceAll("\\p{Punct}", ""); //Found online gets rid of all punctuation like periods
-    while (counter < review.length())  //While loop adds letters to a string until it reaches a space then takes the value of the string it found and starts over
-    {
-      if (review.substring(counter, counter + 1).equals(" "))
-      {
-        totalSentiment = totalSentiment + sentimentVal(stringHolder); //Once a space is reached all the letters in stringHolder are taken the value of as a word
-        stringHolder = "";
-      }else{
-        stringHolder = stringHolder + review.substring(counter, counter + 1); //If no space,adds letter to the word
-      }
-      counter++;
+  // call the remove punctuation method to get rid of periods and exclamation points 
+
+  // create a while loop to process each word individually to get the value for each word
+  int i = 0;
+  while (i < review.length())
+  {
+
+    // get a letter
+  letter =review.substring(i,i+1);
+
+  //if index equals space, then go to next word else add the letter to the word 
+  if (letter.equals(" ")) 
+  {
+    // add up all the values getting the grand total of values as the totalVal
+    word = removePunctuation(word);
+    //System.out.println(word);
+    total += sentimentVal( word );
+  word = "";
+  }
+  else {
+  word = word + letter;
+  }
+  i++;
+  }
+  // return
+  return total; 
+  }//end of method totalSentiment
+ public static String fakeReview(String fileName)
+ {
+   String review = textToString(fileName);
+   String finalString;
+
+   while (review.indexOf("*") != -1)
+   {
+     int asteriskIndex = review.indexOf("*");
+     int nextSpace = review.indexOf(" ", asteriskIndex);
+     String randomString;
+     String asteriskWord = review.substring(asteriskIndex + 1, nextSpace);
+     if (sentimentVal(asteriskWord) < 0)
+     {
+      randomString = randomNegativeAdj();
+     }
+     else
+     {
+      randomString = randomPositiveAdj();
+     }
+     System.out.println(randomString);
+     review = review.replace(asteriskWord, randomString);
+     review = review.replace("*", "");
     }
-    return totalSentiment;
-    }
-    public static int starRating (String textFile)
-    {
-      if totalSentiment < 0)
-    }
+   return review;  
+  }
 }
